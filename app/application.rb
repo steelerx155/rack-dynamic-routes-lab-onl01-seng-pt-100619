@@ -8,6 +8,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
+      item_name = req.path.split("/items/").last
       @@items.each do |item|
         resp.write "#{item}\n"
       else
