@@ -11,8 +11,9 @@ class Application
       @@items.each do |item|
         resp.write "#{item}\n"
       else
+        resp.status = 404
         resp.write "Route not found"
-           resp.status = 404
+           
      end
       resp.finish
   
