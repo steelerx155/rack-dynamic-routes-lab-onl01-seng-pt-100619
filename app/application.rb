@@ -9,7 +9,7 @@ class Application
 
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      @@items.each do |item|
+       if item =@@items.find{|i| i.name == item_name}
         resp.write "#{item}\n"
       else
         resp.status = 404
